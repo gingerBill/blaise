@@ -1,0 +1,72 @@
+var x, y, z, r, q, a, b, c, n, f := 1 // global variables
+
+proc multiply {
+	var a, b
+	a := x
+	b := y
+	z := 0
+	while b > 0 {
+		if odd b {
+			z := z + a
+		}
+		a := 2 * a
+		b := b / 2
+	}
+}
+
+proc divide {
+	var w
+	r := x
+	q := 0
+	w := y
+	while w <= r {
+		w := 2 * w
+	}
+	while w > y {
+		q := 2 * q
+		w := w / 2
+		if w <= r {
+			r := r - w
+			q := q + 1
+		}
+	}
+}
+
+proc gcd {
+	var f, g
+	f := a
+	g := b
+	while f != g {
+		if f < g { g := g - f }
+		if g < f { f := f - g }
+	}
+	c := f
+}
+
+proc fact {
+	if n > 1 {
+		f := n * f
+		n := n - 1
+		call fact
+	}
+}
+
+
+x := 1003 // input x
+y := 7    // input y
+call multiply; print z
+call divide;   print q; print r
+a := 13656 // input a
+b := 6     // input b
+call gcd; print c
+n := 1 // input n
+call fact; print f
+
+// n := 0
+// repeat {
+// 	print n
+// 	n := n + 1
+// } while n < 10
+
+// n := 0
+
